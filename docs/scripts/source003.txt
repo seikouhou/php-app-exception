@@ -1,0 +1,62 @@
+/**
+ * 全ての在庫状況を読み込む
+ *
+ * 戻り値 - 在庫状況一覧
+ *
+ * <code>
+ * [
+ *     [
+ *         'code' => (int)商品ｺｰﾄﾞ,
+ *         'name' => (string)商品名,
+ *         'quantity' => (int)在庫数,
+ *     ],...(以後繰り返し)
+ * ]
+ * </code>
+ *
+ * @return array 在庫状況が格納された配列
+ * @throws \SKJ\AppException\Logic\EnvironmentException 在庫管理ﾌｧｲﾙが開けない
+ * @throws \SKJ\AppException\Runtime\EmptyResultException 在庫が未登録
+ * @throws \SKJ\AppException\Logic\UnexpectedValueException 異常終了
+ * @throws \SKJ\AppException\Logic\ContainerException 未知、未分類の例外
+ */
+public function readStock()
+{
+    try {
+
+        if (($fp = @fopen('stock.csv', 'r')) === false) {
+            throw new \SKJ\AppException\Logic\EnvironmentException(
+                '在庫管理ﾌｧｲﾙが見つかりません!!'
+            );
+        }
+
+        $stock = [];
+
+        while (($line = fgetcsv($fp)) !== false) {
+            $stock[] = [
+                'code' => (int)$line[0],
+                'name' => $this->getItemName((int)$line[0]),
+                'quantity' => (int)$line[1],
+            ];
+        }
+
+        if (empty($stock)) {
+            throw new \SKJ\AppException\Runtime\EmptyResultException(
+                '在庫がありません!!'
+            );
+        }
+
+        if (fclose($fp) === false) {
+            throw new \SKJ\AppException\Logic\UnexpectedValueException(
+                '異常終了しました!!'
+            );
+        }
+
+        return $stock;
+
+    } catch (\Exception $e) {
+
+        throw new \SKJ\AppException\Logic\ContainerException(
+            null, null, $e
+        );
+    }
+}

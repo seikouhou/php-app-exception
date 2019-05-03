@@ -1,0 +1,231 @@
+<?php
+
+require_once('./vendor/autoload.php');
+
+// 基底となる例外ｺｰﾄﾞ
+define(
+    'Shop\\BEC',
+    \SKJ\AppException::getBaseExceptionCode(__FILE__)
+);
+
+class Shop
+{
+    /**
+     * getItemName()で発生する例外ｺｰﾄﾞ
+     */
+    const GET_ITEM_NAME_E01 = \Shop\BEC + __LINE__;
+    const GET_ITEM_NAME_E02 = \Shop\BEC + __LINE__;
+    const GET_ITEM_NAME_E03 = \Shop\BEC + __LINE__;
+    const GET_ITEM_NAME_E04 = \Shop\BEC + __LINE__;
+
+    /**
+     * 商品名を取得する
+     *
+     * 商品ｺｰﾄﾞから商品名を取得する
+     *
+     * @param int $code 商品ｺｰﾄﾞ
+     * @return string 商品名
+     * @throws \SKJ\AppException\Logic\EnvironmentException 環境不備(1)
+     * @throws \SKJ\AppException\Runtime\OutOfBoundsException ﾃﾞｰﾀ不備(2)
+     * @throws \SKJ\AppException\Logic\UnexpectedValueException 異常終了(3)
+     * @throws \SKJ\AppException\Logic\ContainerException 未知、未分類の例外(4)
+     * @uses self::GET_ITEM_NAME_E01 商品管理ﾌｧｲﾙが開けない
+     * @uses self::GET_ITEM_NAME_E02 存在しない商品ｺｰﾄﾞ
+     * @uses self::GET_ITEM_NAME_E03 異常終了
+     * @uses self::GET_ITEM_NAME_E04 未知、未分類の例外
+     */
+    public function getItemName($code)
+    {
+        try {
+
+            if (($fp = @fopen('items.csv', 'r')) === false) {
+                throw new \SKJ\AppException\Logic\EnvironmentException(
+                    '商品管理ﾌｧｲﾙが見つかりません!!', self::GET_ITEM_NAME_E01
+                );
+            }
+
+            $itemList = [];
+
+            while (($line = fgetcsv($fp)) !== false) {
+
+                $itemList[(int)$line[0]] = $line[1];
+            }
+
+            if (array_key_exists($code, $itemList) === false) {
+                throw new \SKJ\AppException\Runtime\OutOfBoundsException(
+                    '該当する商品がありません!!', self::GET_ITEM_NAME_E02
+                );
+            }
+
+            if (fclose($fp) === false) {
+                throw new \SKJ\AppException\Logic\UnexpectedValueException(
+                    '異常終了しました!!', self::GET_ITEM_NAME_E03
+                );
+            }
+
+            return $itemList[$code];
+
+        } catch (\Exception $e) {
+
+            throw new \SKJ\AppException\Logic\ContainerException(
+                null, self::GET_ITEM_NAME_E04, $e
+            );
+        }
+    }
+
+    /**
+     * readStock()で発生する例外ｺｰﾄﾞ
+     */
+    const READ_STOCK_E01 = \Shop\BEC + __LINE__;
+    const READ_STOCK_E02 = \Shop\BEC + __LINE__;
+    const READ_STOCK_E03 = \Shop\BEC + __LINE__;
+    const READ_STOCK_E04 = \Shop\BEC + __LINE__;
+    const READ_STOCK_E05 = \Shop\BEC + __LINE__;
+    const READ_STOCK_E06 = \Shop\BEC + __LINE__;
+
+    /**
+     * 全ての在庫状況を読み込む
+     *
+     * 戻り値 - 在庫状況一覧
+     *
+     * <code>
+     * [
+     *     [
+     *         'code' => (int)商品ｺｰﾄﾞ,
+     *         'name' => (string)商品名,
+     *         'quantity' => (int)在庫数,
+     *     ],...(以後繰り返し)
+     * ]
+     * </code>
+     *
+     * @return array 在庫状況が格納された配列
+     * @throws \SKJ\AppException\Logic\EnvironmentException 環境不備(1,2)
+     * @throws \SKJ\AppException\Runtime\OutOfBoundsException ﾃﾞｰﾀ不備(3)
+     * @throws \SKJ\AppException\Runtime\EmptyResultException ﾃﾞｰﾀが空(4)
+     * @throws \SKJ\AppException\Logic\UnexpectedValueException 異常終了(5)
+     * @throws \SKJ\AppException\Logic\ContainerException 未知、未分類の例外(6)
+     * @uses self::READ_STOCK_E01 在庫管理ﾌｧｲﾙが開けない
+     * @uses self::READ_STOCK_E02 商品管理ﾌｧｲﾙが開けない
+     * @uses self::READ_STOCK_E03 存在しない商品ｺｰﾄﾞ
+     * @uses self::READ_STOCK_E04 在庫が未登録
+     * @uses self::READ_STOCK_E05 異常終了
+     * @uses self::READ_STOCK_E06 未知、未分類の例外
+     */
+    public function readStock()
+    {
+        try {
+
+            if (($fp = @fopen('stock.csv', 'r')) === false) {
+                throw new \SKJ\AppException\Logic\EnvironmentException(
+                    '在庫管理ﾌｧｲﾙが見つかりません!!', self::READ_STOCK_E01
+                );
+            }
+
+            $stock = [];
+
+            while (($line = fgetcsv($fp)) !== false) {
+                $stock[] = [
+                    'code' => (int)$line[0],
+                    'name' => $this->getItemName((int)$line[0]),
+                    'quantity' => (int)$line[1],
+                ];
+            }
+
+            if (empty($stock)) {
+                throw new \SKJ\AppException\Runtime\EmptyResultException(
+                    '在庫がありません!!', self::READ_STOCK_E04
+                );
+            }
+
+            if (fclose($fp) === false) {
+                throw new \SKJ\AppException\Logic\UnexpectedValueException(
+                    '異常終了しました!!', self::READ_STOCK_E05
+                );
+            }
+
+            return $stock;
+
+        } catch (\SKJ\AppException $e) {
+
+            throw $e->renew(
+                [
+                    self::GET_ITEM_NAME_E01 => self::READ_STOCK_E02,
+                    self::GET_ITEM_NAME_E02 => self::READ_STOCK_E03,
+                ]
+            );
+
+        } catch (\Exception $e) {
+
+            throw new \SKJ\AppException\Logic\ContainerException(
+                null, self::READ_STOCK_E06, $e
+            );
+        }
+    }
+}
+
+$shop = new Shop();
+
+try {
+
+    foreach ($shop->readStock() as $item) {
+        printf(
+            '%s(商品コード:%d)の在庫数は%d個です'.PHP_EOL,
+            $item['name'],
+            $item['code'],
+            $item['quantity']
+        );
+    }
+
+} catch (\SKJ\AppException\Logic\EnvironmentException $e) {
+
+    switch ($e->getCode()) {
+        case Shop::READ_STOCK_E01:
+            die('在庫管理ファイルに問題があります'.PHP_EOL);
+        case Shop::READ_STOCK_E02:
+            die('商品管理ファイルに問題があります'.PHP_EOL);
+    }
+
+} catch (\SKJ\AppException\Runtime\OutOfBoundsException $e) {
+
+    die('在庫管理ファイルに存在しない商品コードが含まれています'.PHP_EOL);
+
+} catch (\SKJ\AppException\Runtime\EmptyResultException $e) {
+
+    die('在庫が存在しません'.PHP_EOL);
+
+} catch (\SKJ\AppException\Logic\UnexpectedValueException $e) {
+
+    die('異常終了です'.PHP_EOL);
+
+} catch (\SKJ\AppException\Logic\ContainerException $e) {
+
+    $text = <<< EOD
+ｸﾗｽ名:%s
+発生場所:%s(%d)
+ｺｰﾄﾞ:%d
+ﾒｯｾｰｼﾞ:%s
+
+
+EOD;
+
+    /**
+     * 例外ﾛｸﾞ表示
+     *
+     * @var \SKJ\AppException $exception
+     */
+    foreach ($e as $exception) {
+
+        printf(
+            ($text[0] !== "\t" ? PHP_EOL : '').$text,
+            get_class($exception),
+            $exception->getFile(),
+            $exception->getLine(),
+            $exception->getCode(),
+            $exception->getMessage()
+        );
+
+        $text = preg_replace('/^/m', "\t", $text);
+    }
+
+    die('未知、未分類の障害が発生しました!!'.PHP_EOL);
+}

@@ -1,0 +1,88 @@
+/**
+ * readStock()で発生する例外ｺｰﾄﾞ
+ */
+const READ_STOCK_E01 = 5;
+const READ_STOCK_E02 = 6;
+const READ_STOCK_E03 = 7;
+const READ_STOCK_E04 = 8;
+const READ_STOCK_E05 = 9;
+const READ_STOCK_E06 = 10;
+
+/**
+ * 全ての在庫状況を読み込む
+ *
+ * 戻り値 - 在庫状況一覧
+ *
+ * <code>
+ * [
+ *     [
+ *         'code' => (int)商品ｺｰﾄﾞ,
+ *         'name' => (string)商品名,
+ *         'quantity' => (int)在庫数,
+ *     ],...(以後繰り返し)
+ * ]
+ * </code>
+ *
+ * @return array 在庫状況が格納された配列
+ * @throws \SKJ\AppException\Logic\EnvironmentException 環境不備(1,2)
+ * @throws \SKJ\AppException\Runtime\OutOfBoundsException ﾃﾞｰﾀ不備(3)
+ * @throws \SKJ\AppException\Runtime\EmptyResultException ﾃﾞｰﾀが空(4)
+ * @throws \SKJ\AppException\Logic\UnexpectedValueException 異常終了(5)
+ * @throws \SKJ\AppException\Logic\ContainerException 未知、未分類の例外(6)
+ * @uses self::READ_STOCK_E01 在庫管理ﾌｧｲﾙが開けない
+ * @uses self::READ_STOCK_E02 商品管理ﾌｧｲﾙが開けない
+ * @uses self::READ_STOCK_E03 存在しない商品ｺｰﾄﾞ
+ * @uses self::READ_STOCK_E04 在庫が未登録
+ * @uses self::READ_STOCK_E05 異常終了
+ * @uses self::READ_STOCK_E06 未知、未分類の例外
+ */
+public function readStock()
+{
+    try {
+
+        if (($fp = @fopen('stock.csv', 'r')) === false) {
+            throw new \SKJ\AppException\Logic\EnvironmentException(
+                '在庫管理ﾌｧｲﾙが見つかりません!!', self::READ_STOCK_E01
+            );
+        }
+
+        $stock = [];
+
+        while (($line = fgetcsv($fp)) !== false) {
+            $stock[] = [
+                'code' => (int)$line[0],
+                'name' => $this->getItemName((int)$line[0]),
+                'quantity' => (int)$line[1],
+            ];
+        }
+
+        if (empty($stock)) {
+            throw new \SKJ\AppException\Runtime\EmptyResultException(
+                '在庫がありません!!', self::READ_STOCK_E04
+            );
+        }
+
+        if (fclose($fp) === false) {
+            throw new \SKJ\AppException\Logic\UnexpectedValueException(
+                '異常終了しました!!', self::READ_STOCK_E05
+            );
+        }
+
+        return $stock;
+
+    } catch (\SKJ\AppException $e) {
+
+        throw $e->renew(
+            [
+                self::GET_ITEM_NAME_E01 => self::READ_STOCK_E02,
+                self::GET_ITEM_NAME_E02 => self::READ_STOCK_E03,
+            ]
+        );
+
+    } catch (\Exception $e) {
+
+        throw new \SKJ\AppException\Logic\ContainerException(
+            null, self::READ_STOCK_E06, $e
+        );
+    }
+}

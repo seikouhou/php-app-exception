@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("app_exception", "for app_exception support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("app_exception", "enable app_exception support", "no");
+
+if (PHP_APP_EXCEPTION != "no") {
+	EXTENSION("app_exception", "app_exception.c");
+}
+

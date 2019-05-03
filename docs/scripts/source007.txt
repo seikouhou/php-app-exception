@@ -1,0 +1,19 @@
+<?php
+
+require_once('./vendor/autoload.php');
+
+// 基底となる例外ｺｰﾄﾞ
+define(
+    'Shop\\BEC',
+    \SKJ\AppException::getBaseExceptionCode(__FILE__)
+);
+
+class Shop
+{
+    /**
+     * getItemName()で発生する例外ｺｰﾄﾞ
+     */
+    const GET_ITEM_NAME_E01 = \Shop\BEC + __LINE__;
+    const GET_ITEM_NAME_E02 = \Shop\BEC + __LINE__;
+    const GET_ITEM_NAME_E03 = \Shop\BEC + __LINE__;
+    const GET_ITEM_NAME_E04 = \Shop\BEC + __LINE__;

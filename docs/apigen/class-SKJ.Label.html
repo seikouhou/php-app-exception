@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class SKJ\Label</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-SKJ.html">
+						SKJ<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-SKJ.AppException.html">
+						AppException<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-SKJ.AppException.HTTP.html">
+						HTTP					</a>
+
+						</li>
+				<li>
+					<a href="namespace-SKJ.AppException.Logic.html">
+						Logic					</a>
+
+						</li>
+				<li>
+					<a href="namespace-SKJ.AppException.Runtime.html">
+						Runtime					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-SKJ.Label.html">Label</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-SKJ.AppExceptionInterface.html">AppExceptionInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-SKJ.AppExceptionMethods.html">AppExceptionMethods</a></li>
+			</ul>
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-SKJ.AppException.html">AppException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-SKJ.html" title="Summary of SKJ"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Label</h1>
+
+
+	<div class="description">
+	<p>ﾗﾍﾞﾙ作成</p>
+
+<p>ｿｰｽﾌｧｲﾙの行番号ﾍﾞｰｽの定数ﾗﾍﾞﾙを作成します</p>
+
+<p>◆詳細◆</p>
+
+<p>基本的なﾗﾍﾞﾙ作成は下記のような形となる(行頭の数字はｿｰｽﾗﾍﾞﾙ行)</p>
+
+<pre><span class="php-num">1</span>:<span class="php-var">$label</span> = <span class="php-keyword1">new</span> Label(<span class="php-num">1</span>); <span class="php-comment">// 引数は行補正</span>
+<span class="php-num">2</span>:<span class="php-var">$label</span>-&gt;L01(); <span class="php-comment">// 基本的なﾗﾍﾞﾙ作成方法</span>
+<span class="php-num">3</span>:<span class="php-var">$label</span>-&gt;L02(-<span class="php-num">1</span>); <span class="php-comment">// 引数は別の行補正値を渡せる</span>
+<span class="php-num">4</span>:Label::L03(); <span class="php-comment">// 静的ｺﾝﾃｷｽﾄでも可能</span>
+<span class="php-num">5</span>:<span class="php-keyword1">echo</span> <span class="php-var">$label</span>-&gt;L_L01; <span class="php-comment">// 2(実際のｿｰｽ上のﾗﾍﾞﾙ作成行)</span>
+<span class="php-num">6</span>:<span class="php-keyword1">echo</span> <span class="php-var">$label</span>-&gt;L_L02; <span class="php-comment">// 2(実際のｿｰｽ上のﾗﾍﾞﾙ作成行+ｺﾝｽﾄﾗｸﾀの行補正)</span>
+<span class="php-num">7</span>:<span class="php-keyword1">echo</span> L_L03; <span class="php-comment">// 3(静的に作成した場合は定数のみで参照可能)</span></pre>
+
+<p>実際の使用方法はphp-app-exceptionと組み合わせて下記のように使用される</p>
+
+<pre><span class="php-keyword1">use</span> SKJ\Label;
+
+<span class="php-keyword1">function</span> selectUser(<span class="php-var">$name</span>)
+{
+    <span class="php-keyword1">if</span>(!(<span class="php-var">$result</span> = readDbByUser(<span class="php-var">$name</span>))){
+        <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \SKJ\AppException(<span class="php-quote">'user not found!!'</span>);
+    }
+
+    <span class="php-keyword1">return</span> <span class="php-var">$result</span>;
+}
+
+<span class="php-keyword1">try</span> {
+
+    Label::L001();<span class="php-var">$result</span> = selectUser(<span class="php-quote">'佐藤'</span>);
+    Label::L002(<span class="php-num">1</span>); <span class="php-comment">// ﾗﾍﾞﾙが指し示したい行が次行なので行補正で1を渡す</span>
+        <span class="php-var">$result</span> = selectUser(<span class="php-quote">'鈴木'</span>);
+
+    <span class="php-keyword2">var_dump</span>(<span class="php-var">$result</span>);
+
+} <span class="php-keyword1">catch</span> (\SKJ\AppException <span class="php-var">$e</span>) {
+
+    <span class="php-comment">// 受け取った例外がこのｽｺｰﾌﾟの何行目で発生したものかで分岐</span>
+    <span class="php-keyword1">switch</span> (<span class="php-var">$e</span>-&gt;getLineInCurrentContext()) {
+        <span class="php-keyword1">case</span> L_L001:
+            <span class="php-keyword1">die</span>(<span class="php-quote">'佐藤さんは在籍していません!!'</span>);
+        <span class="php-keyword1">case</span> L_L002:
+            <span class="php-keyword1">die</span>(<span class="php-quote">'鈴木さんは在籍していません!!'</span>);
+    }
+}</pre>
+
+<p>例外ｷｬｯﾁ時にｷｬｯﾁと同一ｽｺｰﾌﾟ上のどの行から発生した例外か識別できる</p>
+
+<p>これはtry～catch間で同一の関数、ﾒｿｯﾄﾞを複数回呼び出す(例外が同一ｸﾗｽ、同一例外ｺｰﾄﾞで返ってくる)ようなｹｰｽで利用できる</p>
+
+<p>※なお、発生行はｾﾐｺﾛﾝのある行となる</p>
+
+<pre>例)
+<span class="php-num">01</span>: Label::L001();<span class="php-var">$users</span> = selectUsers(
+<span class="php-num">02</span>:     <span class="php-quote">'where deleted=0'</span>,
+<span class="php-num">03</span>:     <span class="php-quote">'order by index desc'</span>
+<span class="php-num">04</span>: );</pre>
+
+<p>このようなｹｰｽでは例外の発生行は4となる</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-SKJ.html">SKJ</a><br>
+		<b>Package:</b> SKJ\Label<br>
+
+				<b>Copyright:</b>
+				2019 Seikouhou.<br>
+				<b>License:</b>
+				<a href="https://opensource.org/licenses/MIT">MIT</a><br>
+				<b>Author:</b>
+				y3high <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x79;&#x33;&#112;&#117;&#98;l&#x69;&#x63;&#x40;&#52;&#57;&#51;&#x36;&#x34;&#x2e;&#110;&#101;&#116;">&#x79;&#x33;&#112;&#117;&#98;l&#x69;&#x63;&#x40;&#52;&#57;&#51;&#x36;&#x34;&#x2e;&#110;&#101;&#116;</a><br>
+				<b>Since:</b>
+				Class available since Release 0.8.0<br>
+			<b>Located at</b> <a href="source-class-SKJ.Label.html#9-258" title="Go to source code">Label.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-SKJ.Label.html#102-116" title="Go to source code">__construct</a>( <span>integer <var>$correctedLine</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>ｺﾝｽﾄﾗｸﾀ</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>ｺﾝｽﾄﾗｸﾀ</p>
+
+<p>ｸﾗｽの初期化です</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$correctedLine</var></dt>
+					<dd>ﾗﾍﾞﾙが指し示す場所への行補正</dd>
+				</dl></div>
+
+
+
+				<h4>Api</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setLabel" id="_setLabel">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setLabel">#</a>
+		<code><a href="source-class-SKJ.Label.html#179-189" title="Go to source code">setLabel</a>( <span>string <var>$name</var></span>, <span>integer <var>$correctLine</var></span> )</code>
+
+		<div class="description short">
+			<p>ｲﾝｽﾀﾝｽ内部にﾗﾍﾞﾙ作成</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>ｲﾝｽﾀﾝｽ内部にﾗﾍﾞﾙ作成</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd>ﾗﾍﾞﾙ名称</dd>
+					<dt><var>$correctLine</var></dt>
+					<dd>ﾗﾍﾞﾙが指し示す場所</dd>
+				</dl></div>
+
+
+
+				<h4>Api</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="correctedLine" id="$correctedLine">
+		<td class="attributes"><code>
+			public static 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.Label.html#86-90" title="Go to source code"><var>$correctedLine</var></a>
+
+			<div class="description short">
+				<p>行補正値</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>行補正値</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$correctedLine" class="anchor">#</a>
+				<code><span class="php-num">0</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="labelPrefix" id="$labelPrefix">
+		<td class="attributes"><code>
+			public static 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.Label.html#91-95" title="Go to source code"><var>$labelPrefix</var></a>
+
+			<div class="description short">
+				<p>ﾗﾍﾞﾙ接頭詞</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ﾗﾍﾞﾙ接頭詞</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$labelPrefix" class="anchor">#</a>
+				<code><span class="php-quote">'L'</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?f4f20bcf741294db2c17e4d81a6b118efddbdcec"></script>
+<script src="elementlist.js?684835c1a3e7150722181ed68981f36ee335908f"></script>
+</body>
+</html>

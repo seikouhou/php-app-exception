@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class SKJ\AppException</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-SKJ.html">
+						SKJ<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-SKJ.AppException.html">
+						AppException<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-SKJ.AppException.HTTP.html">
+						HTTP					</a>
+
+						</li>
+				<li>
+					<a href="namespace-SKJ.AppException.Logic.html">
+						Logic					</a>
+
+						</li>
+				<li>
+					<a href="namespace-SKJ.AppException.Runtime.html">
+						Runtime					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-SKJ.Label.html">Label</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-SKJ.AppExceptionInterface.html">AppExceptionInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-SKJ.AppExceptionMethods.html">AppExceptionMethods</a></li>
+			</ul>
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li class="active"><a href="class-SKJ.AppException.html">AppException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-SKJ.html" title="Summary of SKJ"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AppException</h1>
+
+
+	<div class="description">
+	<p>ｱﾌﾟﾘｹｰｼｮﾝﾚﾍﾞﾙで発生する例外の基底となる例外</p>
+
+<p>ｱﾌﾟﾘｹｰｼｮﾝﾚﾍﾞﾙで発生した例外は全てこの例外を継承します</p>
+
+<p>◆詳細◆</p>
+
+<ul> <li>この例外を直接投げるようなことはしないで下さい</li> <li>この例外を継承した\SKJ\AppException\LogicException、\SKJ\AppException\RuntimeException、もしくはこの両例外を継承した更なる詳細例外を投げて下さい</li>
+</ul>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Exception
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>SKJ\AppException</span></b>			
+			 implements 
+				<a href="class-SKJ.AppExceptionInterface.html"><span>SKJ\AppExceptionInterface</span></a>
+			
+			 uses 
+					<a href="class-SKJ.AppExceptionMethods.html"><span>SKJ\AppExceptionMethods</span></a>
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-SKJ.AppException.LogicException.html">SKJ\AppException\LogicException</a>, 
+			<a href="class-SKJ.AppException.RuntimeException.html">SKJ\AppException\RuntimeException</a>
+	</div>
+
+	<div>
+		<h4>Indirect known subclasses</h4>
+			<a href="class-SKJ.AppException.AbstractContainerException.html">SKJ\AppException\AbstractContainerException</a>, 
+			<a href="class-SKJ.AppException.AbstractDateTimeException.html">SKJ\AppException\AbstractDateTimeException</a>, 
+			<a href="class-SKJ.AppException.HTTP.GatewayTimeoutException.html">SKJ\AppException\HTTP\GatewayTimeoutException</a>, 
+			<a href="class-SKJ.AppException.HTTP.GoneException.html">SKJ\AppException\HTTP\GoneException</a>, 
+			<a href="class-SKJ.AppException.HTTP.HttpVersionNotSupportedException.html">SKJ\AppException\HTTP\HttpVersionNotSupportedException</a>, 
+			<a href="class-SKJ.AppException.HTTP.InternalServerErrorException.html">SKJ\AppException\HTTP\InternalServerErrorException</a>, 
+			<a href="class-SKJ.AppException.HTTP.LengthRequiredException.html">SKJ\AppException\HTTP\LengthRequiredException</a>, 
+			<a href="class-SKJ.AppException.HTTP.LockedException.html">SKJ\AppException\HTTP\LockedException</a>, 
+			<a href="class-SKJ.AppException.HTTP.MethodNotAllowedException.html">SKJ\AppException\HTTP\MethodNotAllowedException</a>, 
+			<a href="class-SKJ.AppException.HTTP.NotAcceptableException.html">SKJ\AppException\HTTP\NotAcceptableException</a>, 
+			<a href="class-SKJ.AppException.HTTP.NotFoundException.html">SKJ\AppException\HTTP\NotFoundException</a>, 
+			<a href="class-SKJ.AppException.HTTP.NotImplementedException.html">SKJ\AppException\HTTP\NotImplementedException</a>, 
+			<a href="class-SKJ.AppException.AbstractHttpException.html">SKJ\AppException\AbstractHttpException</a>, 
+			<a href="class-SKJ.AppException.HTTP.PaymentRequiredException.html">SKJ\AppException\HTTP\PaymentRequiredException</a>, 
+			<a href="class-SKJ.AppException.HTTP.PreconditionFailedException.html">SKJ\AppException\HTTP\PreconditionFailedException</a>, 
+			<a href="class-SKJ.AppException.HTTP.ProxyAuthenticationRequiredException.html">SKJ\AppException\HTTP\ProxyAuthenticationRequiredException</a>, 
+			<a href="class-SKJ.AppException.HTTP.RequestedRangeNotSatisfiableException.html">SKJ\AppException\HTTP\RequestedRangeNotSatisfiableException</a>, 
+			<a href="class-SKJ.AppException.HTTP.RequestEntityTooLargeException.html">SKJ\AppException\HTTP\RequestEntityTooLargeException</a>, 
+			<a href="class-SKJ.AppException.HTTP.RequestTimeoutException.html">SKJ\AppException\HTTP\RequestTimeoutException</a>, 
+			<a href="class-SKJ.AppException.HTTP.RequestUriTooLongException.html">SKJ\AppException\HTTP\RequestUriTooLongException</a>, 
+			<a href="class-SKJ.AppException.HTTP.ServiceUnavailableException.html">SKJ\AppException\HTTP\ServiceUnavailableException</a>, 
+			<a href="class-SKJ.AppException.HTTP.UnauthorizedException.html">SKJ\AppException\HTTP\UnauthorizedException</a>, 
+			<a href="class-SKJ.AppException.HTTP.UnprocessableEntityException.html">SKJ\AppException\HTTP\UnprocessableEntityException</a>, 
+			<a href="class-SKJ.AppException.AbstractValidationException.html">SKJ\AppException\AbstractValidationException</a>, 
+			<a href="class-SKJ.AppException.HTTP.UnsupportedMediaTypeException.html">SKJ\AppException\HTTP\UnsupportedMediaTypeException</a>, 
+			<a href="class-SKJ.AppException.HttpException.html">SKJ\AppException\HttpException</a>, 
+			<a href="class-SKJ.AppException.Logic.BadFunctionCallException.html">SKJ\AppException\Logic\BadFunctionCallException</a>, 
+			<a href="class-SKJ.AppException.Logic.BadMethodCallException.html">SKJ\AppException\Logic\BadMethodCallException</a>, 
+			<a href="class-SKJ.AppException.Logic.CircularReferenceException.html">SKJ\AppException\Logic\CircularReferenceException</a>, 
+			<a href="class-SKJ.AppException.Logic.ContainerException.html">SKJ\AppException\Logic\ContainerException</a>, 
+			<a href="class-SKJ.AppException.Logic.DependencyInjectionException.html">SKJ\AppException\Logic\DependencyInjectionException</a>, 
+			<a href="class-SKJ.AppException.Logic.DomainException.html">SKJ\AppException\Logic\DomainException</a>, 
+			<a href="class-SKJ.AppException.Logic.EnvironmentException.html">SKJ\AppException\Logic\EnvironmentException</a>, 
+			<a href="class-SKJ.AppException.Logic.InvalidArgumentException.html">SKJ\AppException\Logic\InvalidArgumentException</a>, 
+			<a href="class-SKJ.AppException.HTTP.BadGatewayException.html">SKJ\AppException\HTTP\BadGatewayException</a>, 
+			<a href="class-SKJ.AppException.Logic.LengthException.html">SKJ\AppException\Logic\LengthException</a>, 
+			<a href="class-SKJ.AppException.Logic.OutOfRangeException.html">SKJ\AppException\Logic\OutOfRangeException</a>, 
+			<a href="class-SKJ.AppException.Logic.UnexpectedValueException.html">SKJ\AppException\Logic\UnexpectedValueException</a>, 
+			<a href="class-SKJ.AppException.Runtime.AuthenticationException.html">SKJ\AppException\Runtime\AuthenticationException</a>, 
+			<a href="class-SKJ.AppException.Runtime.DeadLockException.html">SKJ\AppException\Runtime\DeadLockException</a>, 
+			<a href="class-SKJ.AppException.Runtime.DuplicationException.html">SKJ\AppException\Runtime\DuplicationException</a>, 
+			<a href="class-SKJ.AppException.Runtime.DurationException.html">SKJ\AppException\Runtime\DurationException</a>, 
+			<a href="class-SKJ.AppException.Runtime.EmptyResultException.html">SKJ\AppException\Runtime\EmptyResultException</a>, 
+			<a href="class-SKJ.AppException.Runtime.ExpiryException.html">SKJ\AppException\Runtime\ExpiryException</a>, 
+			<a href="class-SKJ.AppException.Runtime.InvalidElementException.html">SKJ\AppException\Runtime\InvalidElementException</a>, 
+			<a href="class-SKJ.AppException.HTTP.BadRequestException.html">SKJ\AppException\HTTP\BadRequestException</a>, 
+			<a href="class-SKJ.AppException.Runtime.MissingElementException.html">SKJ\AppException\Runtime\MissingElementException</a>, 
+			<a href="class-SKJ.AppException.Runtime.NoConditionException.html">SKJ\AppException\Runtime\NoConditionException</a>, 
+			<a href="class-SKJ.AppException.Runtime.OutOfBoundsException.html">SKJ\AppException\Runtime\OutOfBoundsException</a>, 
+			<a href="class-SKJ.AppException.Runtime.OverflowException.html">SKJ\AppException\Runtime\OverflowException</a>, 
+			<a href="class-SKJ.AppException.Runtime.PermissionException.html">SKJ\AppException\Runtime\PermissionException</a>, 
+			<a href="class-SKJ.AppException.Runtime.RangeException.html">SKJ\AppException\Runtime\RangeException</a>, 
+			<a href="class-SKJ.AppException.Runtime.TemporaryFailureException.html">SKJ\AppException\Runtime\TemporaryFailureException</a>, 
+			<a href="class-SKJ.AppException.Runtime.TimeoutException.html">SKJ\AppException\Runtime\TimeoutException</a>, 
+			<a href="class-SKJ.AppException.Runtime.TransactionException.html">SKJ\AppException\Runtime\TransactionException</a>, 
+			<a href="class-SKJ.AppException.Runtime.UnavailableServiceException.html">SKJ\AppException\Runtime\UnavailableServiceException</a>, 
+			<a href="class-SKJ.AppException.HTTP.ConflictException.html">SKJ\AppException\HTTP\ConflictException</a>, 
+			<a href="class-SKJ.AppException.Runtime.UnderflowException.html">SKJ\AppException\Runtime\UnderflowException</a>, 
+			<a href="class-SKJ.AppException.Runtime.UnexpectedValueException.html">SKJ\AppException\Runtime\UnexpectedValueException</a>, 
+			<a href="class-SKJ.AppException.Runtime.UploadException.html">SKJ\AppException\Runtime\UploadException</a>, 
+			<a href="class-SKJ.AppException.Runtime.ValidationException.html">SKJ\AppException\Runtime\ValidationException</a>, 
+			<a href="class-SKJ.AppException.Runtime.WrongArgumentException.html">SKJ\AppException\Runtime\WrongArgumentException</a>, 
+			<a href="class-SKJ.AppException.HTTP.ExpectationFailedException.html">SKJ\AppException\HTTP\ExpectationFailedException</a>, 
+			<a href="class-SKJ.AppException.HTTP.FailedDependencyException.html">SKJ\AppException\HTTP\FailedDependencyException</a>, 
+			<a href="class-SKJ.AppException.HTTP.ForbiddenException.html">SKJ\AppException\HTTP\ForbiddenException</a>
+	</div>
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-SKJ.html">SKJ</a><br>
+		<b>Package:</b> SKJ\AppException<br>
+
+				<b>Copyright:</b>
+				2019 Seikouhou.<br>
+				<b>License:</b>
+				<a href="https://opensource.org/licenses/MIT">MIT</a><br>
+				<b>Author:</b>
+				y3high <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x79;&#x33;&#112;&#117;&#98;l&#x69;&#x63;&#x40;&#52;&#57;&#51;&#x36;&#x34;&#x2e;&#110;&#101;&#116;">&#x79;&#x33;&#112;&#117;&#98;l&#x69;&#x63;&#x40;&#52;&#57;&#51;&#x36;&#x34;&#x2e;&#110;&#101;&#116;</a><br>
+				<b>Since:</b>
+				Class available since Release 0.8.0<br>
+			<b>Located at</b> <a href="source-class-SKJ.AppException.html#24-178" title="Go to source code">AppException.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-SKJ.AppException.html#123-144" title="Go to source code">__construct</a>( <span>string|array|null <var>$message</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$code</var> = <span class="php-keyword1">null</span></span>, <span>Exception <var>$previous</var> = <span class="php-keyword1">null</span></span>, <span>integer|null <var>$options</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			<p>ｺﾝｽﾄﾗｸﾀ</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>ｺﾝｽﾄﾗｸﾀ</p>
+
+<p>例外の初期化処理</p>
+
+<p>※このｸﾗｽを継承した子ｸﾗｽに「initialize」ﾒｿｯﾄﾞが存在すれば呼ばれるが、その際に例外が投げられる可能性があるので注意する事(詳細は子ｸﾗｽの「initialize」ﾒｿｯﾄﾞのDOCを確認)</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$message</var></dt>
+					<dd>例外ﾒｯｾｰｼﾞ、これを文字列ではなく配列として渡すと、<var>$messageTemplate</var>に設定されたﾌｫｰﾏｯﾄ文字列と一緒にvsprintfへと渡され、その戻り値が例外ﾒｯｾｰｼﾞとなります</dd>
+					<dt><var>$code</var></dt>
+					<dd>例外ｺｰﾄﾞ</dd>
+					<dt><var>$previous</var></dt>
+					<dd>以前に使われた例外で、例外の連結に使用</dd>
+					<dt><var>$options</var></dt>
+					<dd>変数のｽﾅｯﾌﾟｼｮｯﾄｵﾌﾟｼｮﾝを指定する</dd>
+				</dl></div>
+
+
+
+				<h4>Uses</h4>
+				<div class="list">
+						self::OPT_GLOBAL_VARS_SNAPSHOT ｸﾞﾛｰﾊﾞﾙ変数のｽﾅｯﾌﾟｼｮｯﾄ取得時に<var>$options</var>へ指定<br>
+						self::OPT_CALLER_VARS_SNAPSHOT ﾛｰｶﾙ変数のｽﾅｯﾌﾟｼｮｯﾄ取得時に<var>$options</var>へ指定<br>
+				</div>
+				<h4>Api</h4>
+				<div class="list">
+				</div>
+
+				<h4>Overrides</h4>
+				<div class="list"><code>Exception::__construct()</code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getGlobalVars" id="_getGlobalVars">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getGlobalVars">#</a>
+		<code><a href="source-class-SKJ.AppException.html#157-166" title="Go to source code">getGlobalVars</a>( )</code>
+
+		<div class="description short">
+			<p>例外発生時のｸﾞﾛｰﾊﾞﾙｽｺｰﾌﾟの変数情報を取得</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>例外発生時のｸﾞﾛｰﾊﾞﾙｽｺｰﾌﾟの変数情報を取得</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>ｸﾞﾛｰﾊﾞﾙ変数情報
+				</div>
+
+
+				<h4>Api</h4>
+				<div class="list">
+				</div>
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SKJ.AppExceptionInterface.html#_getGlobalVars">SKJ\AppExceptionInterface::getGlobalVars()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCallerVars" id="_getCallerVars">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCallerVars">#</a>
+		<code><a href="source-class-SKJ.AppException.html#168-177" title="Go to source code">getCallerVars</a>( )</code>
+
+		<div class="description short">
+			<p>例外発生時のﾛｰｶﾙｽｺｰﾌﾟの変数情報を取得</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>例外発生時のﾛｰｶﾙｽｺｰﾌﾟの変数情報を取得</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>ﾛｰｶﾙ変数情報
+				</div>
+
+
+				<h4>Api</h4>
+				<div class="list">
+				</div>
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SKJ.AppExceptionInterface.html#_getCallerVars">SKJ\AppExceptionInterface::getCallerVars()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from Exception</caption>
+	<tr>
+		<td><code>
+__toString(), 
+__wakeup(), 
+getCode(), 
+getFile(), 
+getLine(), 
+getMessage(), 
+getPrevious(), 
+getTrace(), 
+getTraceAsString()
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-SKJ.AppExceptionInterface.html#methods">SKJ\AppExceptionInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SKJ.AppExceptionInterface.html#_disableSkipContainer">disableSkipContainer()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_enableSkipContainer">enableSkipContainer()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_forge">forge()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getBaseExceptionCode">getBaseExceptionCode()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getCallQueue">getCallQueue()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getClass">getClass()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getExceptionLog">getExceptionLog()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getFields">getFields()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getFuncArgsInCurrentContext">getFuncArgsInCurrentContext()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getFunction">getFunction()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getFunctionInCurrentContext">getFunctionInCurrentContext()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getLineInCurrentContext">getLineInCurrentContext()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getOriginalClassName">getOriginalClassName()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getOriginalException">getOriginalException()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_getStatusCode">getStatusCode()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_isExtension">isExtension()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_renew">renew()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_resetFilter">resetFilter()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setCode">setCode()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setFields">setFields()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setFile">setFile()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setFilter">setFilter()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setLine">setLine()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setMessage">setMessage()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setSortOrder">setSortOrder()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_setStatusCode">setStatusCode()</a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#_wasCreatedInCurrentContext">wasCreatedInCurrentContext()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from IteratorAggregate</caption>
+	<tr>
+		<td><code>
+getIterator()
+		</code></td>
+	</tr>
+	</table>
+
+	<table class="summary used">
+	<caption>Methods used from <a href="class-SKJ.AppExceptionMethods.html#methods">SKJ\AppExceptionMethods</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SKJ.AppExceptionMethods.html#_disableSkipContainer">disableSkipContainer()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_enableSkipContainer">enableSkipContainer()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_forge">forge()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getBaseExceptionCode">getBaseExceptionCode()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getCallQueue">getCallQueue()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getClass">getClass()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getExceptionLog">getExceptionLog()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getFields">getFields()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getFuncArgsInCurrentContext">getFuncArgsInCurrentContext()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getFunction">getFunction()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getFunctionInCurrentContext">getFunctionInCurrentContext()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getLineInCurrentContext">getLineInCurrentContext()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getOriginalClassName">getOriginalClassName()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getOriginalException">getOriginalException()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_getStatusCode">getStatusCode()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_isExtension">isExtension()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_renew">renew()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_resetFilter">resetFilter()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setCode">setCode()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setFields">setFields()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setFile">setFile()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setFilter">setFilter()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setLine">setLine()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setMessage">setMessage()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setSortOrder">setSortOrder()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_setStatusCode">setStatusCode()</a>, 
+			<a href="class-SKJ.AppExceptionMethods.html#_wasCreatedInCurrentContext">wasCreatedInCurrentContext()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="OPT_GLOBAL_VARS_SNAPSHOT" id="OPT_GLOBAL_VARS_SNAPSHOT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-SKJ.AppException.html#53-58" title="Go to source code"><b>OPT_GLOBAL_VARS_SNAPSHOT</b></a>
+			</code>
+
+			<div class="description short">
+				<p>例外発生時のｸﾞﾛｰﾊﾞﾙ変数のｽﾅｯﾌﾟｼｮｯﾄを撮りたい時に、ｺﾝｽﾄﾗｸﾀの第4引数に指定する定数</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>例外発生時のｸﾞﾛｰﾊﾞﾙ変数のｽﾅｯﾌﾟｼｮｯﾄを撮りたい時に、ｺﾝｽﾄﾗｸﾀの第4引数に指定する定数</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#OPT_GLOBAL_VARS_SNAPSHOT" class="anchor">#</a>
+				<code><span class="php-num">1</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="OPT_CALLER_VARS_SNAPSHOT" id="OPT_CALLER_VARS_SNAPSHOT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-SKJ.AppException.html#59-64" title="Go to source code"><b>OPT_CALLER_VARS_SNAPSHOT</b></a>
+			</code>
+
+			<div class="description short">
+				<p>例外発生時のﾛｰｶﾙ変数のｽﾅｯﾌﾟｼｮｯﾄを撮りたい時に、ｺﾝｽﾄﾗｸﾀの第4引数に指定する定数</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>例外発生時のﾛｰｶﾙ変数のｽﾅｯﾌﾟｼｮｯﾄを撮りたい時に、ｺﾝｽﾄﾗｸﾀの第4引数に指定する定数</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#OPT_CALLER_VARS_SNAPSHOT" class="anchor">#</a>
+				<code><span class="php-num">2</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-SKJ.AppExceptionInterface.html#constants">SKJ\AppExceptionInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SKJ.AppExceptionInterface.html#SORT_ORDER_ASC"><b>SORT_ORDER_ASC</b></a>, 
+			<a href="class-SKJ.AppExceptionInterface.html#SORT_ORDER_DESC"><b>SORT_ORDER_DESC</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="defMessage" id="$defMessage">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.AppException.html#65-71" title="Go to source code"><var>$defMessage</var></a>
+
+			<div class="description short">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$defMessage" class="anchor">#</a>
+				<code><span class="php-quote">'例外が発生しました'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="messageTemplate" id="$messageTemplate">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.AppException.html#72-78" title="Go to source code"><var>$messageTemplate</var></a>
+
+			<div class="description short">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$messageTemplate" class="anchor">#</a>
+				<code><span class="php-quote">'例外が%sで発生しました'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="defCode" id="$defCode">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.AppException.html#79-85" title="Go to source code"><var>$defCode</var></a>
+
+			<div class="description short">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$defCode" class="anchor">#</a>
+				<code><span class="php-num">1000</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="statusCode" id="$statusCode">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.AppException.html#86-92" title="Go to source code"><var>$statusCode</var></a>
+
+			<div class="description short">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$statusCode" class="anchor">#</a>
+				<code><span class="php-num">1000</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="iteratorSortOrder" id="$iteratorSortOrder">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.AppException.html#93-100" title="Go to source code"><var>$iteratorSortOrder</var></a>
+
+			<div class="description short">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ｻﾌﾞｸﾗｽにて初期値を上書きする</p>
+
+					<h4>Uses</h4>
+					<div class="list">
+							self::SORT_ORDER_DESC 初期値として使用<br>
+					</div>
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$iteratorSortOrder" class="anchor">#</a>
+				<code>self::SORT_ORDER_DESC</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="enableGlobalVarsSnapShot" id="$enableGlobalVarsSnapShot">
+		<td class="attributes"><code>
+			public static 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.AppException.html#101-105" title="Go to source code"><var>$enableGlobalVarsSnapShot</var></a>
+
+			<div class="description short">
+				<p>例外発生時のｸﾞﾛｰﾊﾞﾙｽｺｰﾌﾟの変数情報を記録するかどうかの真偽値</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>例外発生時のｸﾞﾛｰﾊﾞﾙｽｺｰﾌﾟの変数情報を記録するかどうかの真偽値</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$enableGlobalVarsSnapShot" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="enableCallerVarsSnapShot" id="$enableCallerVarsSnapShot">
+		<td class="attributes"><code>
+			public static 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SKJ.AppException.html#106-110" title="Go to source code"><var>$enableCallerVarsSnapShot</var></a>
+
+			<div class="description short">
+				<p>例外発生時のﾛｰｶﾙｽｺｰﾌﾟの変数情報を記録するかどうかの真偽値</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>例外発生時のﾛｰｶﾙｽｺｰﾌﾟの変数情報を記録するかどうかの真偽値</p>
+
+					<h4>Api</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$enableCallerVarsSnapShot" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from Exception</caption>
+	<tr>
+		<td><code>
+<var>$code</var>, 
+<var>$file</var>, 
+<var>$line</var>, 
+<var>$message</var>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?f4f20bcf741294db2c17e4d81a6b118efddbdcec"></script>
+<script src="elementlist.js?684835c1a3e7150722181ed68981f36ee335908f"></script>
+</body>
+</html>

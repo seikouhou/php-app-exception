@@ -1,0 +1,39 @@
+{
+    "name": "y3high/php-app-exception",
+    "type": "library",
+    "description": "php exception extended for application.",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "keywords": [
+        "php-app-exception"
+    ],
+    "authors": [
+        {
+            "name": "y3high",
+            "email": "y3public@49364.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SKJ\\": "src/",
+            "SKJ\\AppException\\": "src/exceptions/"
+        }
+    },
+    "scripts": {
+        "expgen": "php ./bin/GenerateException.php",
+        "apigen": "apigen generate -s ./src -d ./docs/apigen --exclude=./src/AppExceptionDisableExtension.txt --exclude=./src/AppExceptionEnableExtension.txt --exclude=./src/extension --extensions=php",
+        "phpdoc": "phpdoc run -d ./src -t ./docs/phpdoc --ignore=./src/AppExceptionDisableExtension.txt --ignore=./src/AppExceptionEnableExtension.txt --ignore=./src/extension",
+        "test": "phpunit -c ./tests/phpunit.xml"
+    },
+    "require": {
+        "php": "~5.6",
+        "ext-mbstring": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "dompdf/dompdf": "0.6",
+        "phpdocumentor/phpdocumentor": "^2.0",
+        "apigen/apigen": "^4.0",
+        "phpunit/phpunit": "^5.0"
+    }
+}

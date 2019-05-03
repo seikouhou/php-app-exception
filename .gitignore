@@ -1,0 +1,18 @@
+# Created by .ignore support plugin (hsz.mobi)
+composer.phar
+.idea
+*.iml
+/vendor/
+/docs/coverage
+/tests/**/@data/trait.php
+/tests/coverage.xml
+/src/extension/*
+!/src/extension/tests
+!/src/extension/app_exception.c
+!/src/extension/app_exception.php
+!/src/extension/php_app_exception.h
+!/src/extension/config.m4
+!/src/extension/config.w32
+!/src/extension/CREDITS
+!/src/extension/EXPERIMENTAL
+!.gitkeep

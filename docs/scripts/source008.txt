@@ -1,0 +1,93 @@
+<?php
+
+require_once('./vendor/autoload.php');
+
+function containerTest()
+{
+    throw new \SKJ\AppException\RuntimeException('深い場所からの例外です!!');
+}
+
+class ContainerTest
+{
+    public function throw1()
+    {
+
+        try {
+
+            $this->throw2();
+
+        } catch (\Exception $e) {
+
+            throw new \SKJ\AppException\Logic\ContainerException(
+                null, null, $e
+            );
+        }
+    }
+
+    public function throw2()
+    {
+
+        try {
+
+            $this->throw3();
+
+        } catch (\Exception $e) {
+
+            throw new \SKJ\AppException\Logic\ContainerException(
+                null, null, $e
+            );
+        }
+    }
+
+    public function throw3()
+    {
+
+        try {
+
+            containerTest();
+
+        } catch (\SKJ\AppException\RuntimeException $e) {
+
+            throw new \SKJ\AppException\LogicException('例外テストです!!', null, $e);
+        }
+    }
+}
+
+$test = new ContainerTest();
+
+try {
+
+    $test->throw1();
+
+} catch (\SKJ\AppException\Logic\ContainerException $e) {
+
+    $text = <<< EOD
+ｸﾗｽ名:%s
+発生場所:%s(%d)
+ｺｰﾄﾞ:%d
+ﾒｯｾｰｼﾞ:%s
+
+
+EOD;
+
+    /**
+     * 例外ﾛｸﾞ表示
+     *
+     * @var \SKJ\AppException $exception
+     */
+    foreach ($e as $exception) {
+
+        printf(
+            ($text[0] !== "\t" ? PHP_EOL : '').$text,
+            get_class($exception),
+            $exception->getFile(),
+            $exception->getLine(),
+            $exception->getCode(),
+            $exception->getMessage()
+        );
+
+        $text = preg_replace('/^/m', "\t", $text);
+    }
+
+    die('未知、未分類の障害が発生しました!!'.PHP_EOL);
+}
