@@ -14,9 +14,13 @@ if (extension_loaded('_AppException')) {
 
 return;
 
-// 以下はapigen、phpDocumentor用のﾀﾞﾐｰﾌｧｲﾙです!!
-// ｸﾗｽの実態上記でrequireした、AppExceptionDisableExtension.txtもしくは
-// AppExceptionEnableExtension.txtを参照してください
+/**
+ * ################################# 注 意 ####################################
+ * 以下はIDEのｲﾝｽﾍﾟｸｼｮﾝ、apigen、phpDocumentor対策のﾀﾞﾐｰｺｰﾄﾞです!!
+ * ｸﾗｽの実体は上記でrequireした、AppExceptionDisableExtension.txtもしくは
+ * AppExceptionEnableExtension.txtを参照してください
+ * ############################################################################
+ */
 
 // 別名定義
 use Exception;

@@ -1,17 +1,21 @@
 # php-app-exception
 
-[![Build Status](https://travis-ci.org/seikouhou/prot-php-app-exception.svg?branch=master)](https://travis-ci.org/seikouhou/prot-php-app-exception)
-[![codecov](https://codecov.io/gh/seikouhou/prot-php-app-exception/branch/master/graph/badge.svg)](https://codecov.io/gh/seikouhou/prot-php-app-exception)
+[![Build Status](https://travis-ci.org/seikouhou/php-app-exception.svg?branch=master)](https://travis-ci.org/seikouhou/php-app-exception)
+[![codecov](https://codecov.io/gh/seikouhou/php-app-exception/branch/master/graph/badge.svg)](https://codecov.io/gh/seikouhou/php-app-exception)
 [![Latest Stable Version](https://poser.pugx.org/seikouhou/php-app-exception/v/stable?format=flat)](https://packagist.org/packages/seikouhou/php-app-exception)
 [![License](https://poser.pugx.org/seikouhou/php-app-exception/license?format=flat)](LICENSE)
 
 This repository is PHP exception extended for application
 
+## Overview
+
+phpで例外主体のﾌﾟﾛｸﾞﾗﾐﾝｸﾞを容易にする為の例外ｾｯﾄです。
+
 ## Description
 
-当例外ｾｯﾄは、ﾒｿｯﾄﾞ、関数が非正常系処理結果を例外で返すことを容易にする為のものです。
+当例外ｾｯﾄは、ﾒｿｯﾄﾞ、関数が非正常系処理結果を全て例外で返すことを容易にする為のものです。
 
-ここでいう非正常系処理結果とは正常な処理結果以外全ての事を指します。つまり、会員名簿を読み出す関数などの場合は、会員名簿を読み出すことができた場合のみが正常処理で、その他の場合(認証ｴﾗｰが発生した、DBに障害が発生した、会員名簿が未登録だったなど)は全て非正常系の処理結果となります。
+ここでいう非正常系処理結果とは正常な処理結果以外全ての事を指します。つまり、会員名簿を読み出す関数などの場合は、会員名簿を読み出すことができた場合のみが正常処理で、その他の場合(認証ｴﾗｰが発生した、DBに障害が発生した、会員名簿が未登録だったなども)は全て非正常系の処理結果となります。
 
 一般的な方法では、進行不能な致命的なｴﾗｰ発生時のみ例外を投げ、その他のｴﾗｰ通知は戻り値で偽を返すなどと言った方法でしたが、今回推奨する方法は、当例外ｾｯﾄを使用し、非正常系の処理結果については全て例外で返すという方法です。
 
@@ -85,7 +89,7 @@ require_once('/path/to/project/vendor/autoload.php');
 
 ## Class Hierarchy Diagram
 
-[![class hierarchy diagram](./docs/images/class_diagram.png)](https://seikouhou.github.io/prot-php-app-exception/images/class_diagram.png)
+[![class hierarchy diagram](./docs/images/class_diagram.png)](https://seikouhou.github.io/php-app-exception/images/class_diagram.png)
 
 上図が当例外ｾｯﾄのｸﾗｽ階層図となっています。
 
@@ -109,7 +113,7 @@ require_once('/path/to/project/vendor/autoload.php');
 
 当例外ｾｯﾄではSPLで用意されている例外は、全て対応する例外を用意しています。それにﾌﾟﾗｽして上記のHTTP系例外といくつかの独自例外を追加しています。
 
-詳しくはﾘﾎﾟｼﾞﾄﾘの[docsﾌｫﾙﾀﾞ配下にあるAPIﾄﾞｷｭﾒﾝﾄ](https://seikouhou.github.io/prot-php-app-exception/apigen/)を参照して下さい。
+詳しくはﾘﾎﾟｼﾞﾄﾘの[docsﾌｫﾙﾀﾞ配下にあるAPIﾄﾞｷｭﾒﾝﾄ](https://seikouhou.github.io/php-app-exception/apigen/)を参照して下さい。
 
 ## How to Customize
 
@@ -141,7 +145,7 @@ require_once('/path/to/project/vendor/autoload.php');
 
 `stock.php`
 
-[![source001](./docs/images/source001.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source001.txt)
+[![source001](./docs/images/source001.png)](https://seikouhou.github.io/php-app-exception/scripts/source001.txt)
 
 `stock.csv`
 ```
@@ -164,7 +168,7 @@ stock.csvに記録されている在庫情報を読み込み、一覧として�
 
 `stock.php`
 
-[![source002](./docs/images/source002.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source002.txt)
+[![source002](./docs/images/source002.png)](https://seikouhou.github.io/php-app-exception/scripts/source002.txt)
 
 `items.csv`
 ```
@@ -206,7 +210,7 @@ getItemNameﾒｿｯﾄﾞが投げる例外は
 
 `修正されたreadStockﾒｿｯﾄﾞ`
 
-[![source003](./docs/images/source003.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source003.txt)
+[![source003](./docs/images/source003.png)](https://seikouhou.github.io/php-app-exception/scripts/source003.txt)
 
 変更された点は元のｺｰﾄﾞ(26行目～54行目)をtry、catchﾌﾞﾛｯｸで囲んでいる部分です。
 catchﾌﾞﾛｯｸでは受け取った例外を\SKJ\AppException\Logic\ContainerExceptionｸﾗｽのｺﾝｽﾄﾗｸﾀの第3引数に渡して(例外の連結)、throw(58行目～60行目)しています。
@@ -264,7 +268,7 @@ readStockﾒｿｯﾄﾞを上記をふまえて修正します。
 
 `修正されたreadStockﾒｿｯﾄﾞ`
 
-[![source004](./docs/images/source004.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source004.txt)
+[![source004](./docs/images/source004.png)](https://seikouhou.github.io/php-app-exception/scripts/source004.txt)
 
 修正箇所は35～56行目で、getItemNameﾒｿｯﾄﾞから投げられる\SKJ\AppException\Logic\EnvironmentExceptionと\SKJ\AppException\Runtime\OutOfBoundsExceptionをｷｬｯﾁしています。
 
@@ -283,7 +287,7 @@ readStockﾒｿｯﾄﾞを上記をふまえて修正します。
 
 `修正されたstock.php`
 
-[![source005](./docs/images/source005.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source005.txt)
+[![source005](./docs/images/source005.png)](https://seikouhou.github.io/php-app-exception/scripts/source005.txt)
 
 変更箇所としては、例外ｺｰﾄﾞとして使用する数値をｸﾗｽ定数として10～13行目、73～78行目に定義し、例外生成時にそのｸﾗｽ定数を例外のｺﾝｽﾄﾗｸﾀの第2引数に指定しています。
 
@@ -306,7 +310,7 @@ getItemNameﾒｿｯﾄﾞの呼び出し場所が1ヵ所であれば大した�
 
 `修正されたreadStockﾒｿｯﾄﾞ`
 
-[![source006](./docs/images/source006.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source006.txt)
+[![source006](./docs/images/source006.png)](https://seikouhou.github.io/php-app-exception/scripts/source006.txt)
 
 修正された箇所は、51～57行目を囲んでいたtry～cacheを取り外し、73～81行目に代替となるrenewﾒｿｯﾄﾞの処理を追加したことです。
 
@@ -338,7 +342,7 @@ renewﾒｿｯﾄﾞは例外ｺｰﾄﾞの変更だけでなく、ﾒｯｾｰ
 
 `修正されたstock.php 先頭部分`
 
-[![source007](./docs/images/source007.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source007.txt)
+[![source007](./docs/images/source007.png)](https://seikouhou.github.io/php-app-exception/scripts/source007.txt)
 
 Shopｸﾗｽの外に定数として、\Shop\BEC(名前は自由ですが複数ｸﾗｽ間で共用しないよいう、ｸﾗｽ名の名前空間の下にして下さい)という名前で\SKJ\AppException::getBaseExceptionCodeﾒｿｯﾄﾞの戻り値を定義します。
 
@@ -370,7 +374,7 @@ Shopｸﾗｽの外に定数として、\Shop\BEC(名前は自由ですが複数
 
 `container_test.php`
 
-[![source008](./docs/images/source008.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source008.txt)
+[![source008](./docs/images/source008.png)](https://seikouhou.github.io/php-app-exception/scripts/source008.txt)
 
 `実行結果`
 ```
@@ -411,7 +415,7 @@ Shopｸﾗｽの外に定数として、\Shop\BEC(名前は自由ですが複数
 
 `最終的なstock.php`
 
-[![source009](./docs/images/source009.png)](https://seikouhou.github.io/prot-php-app-exception/scripts/source009.txt)
+[![source009](./docs/images/source009.png)](https://seikouhou.github.io/php-app-exception/scripts/source009.txt)
 
 `実行結果`
 ```
@@ -429,8 +433,10 @@ Under construction
 
 Under construction
 
-## Contact
+### 変数のｽﾅｯﾌﾟｼｮｯﾄ
 
 Under construction
 
-ここまで
+## Contact
+
+Under construction

@@ -1,5 +1,5 @@
 {
-    "name": "y3high/php-app-exception",
+    "name": "seikouhou/php-app-exception",
     "type": "library",
     "description": "php exception extended for application.",
     "minimum-stability": "stable",
